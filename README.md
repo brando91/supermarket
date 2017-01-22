@@ -1,4 +1,4 @@
-# Back to the supermarket
+# Back to the supermarket [![Build Status](https://travis-ci.org/brando91/supermarket.svg?branch=master)](https://travis-ci.org/brando91/supermarket)
 
 This week, we’ll implement the code for a checkout system that handles pricing schemes such as “apples cost 50 cents, three apples cost $1.30.”
 
