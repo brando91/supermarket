@@ -2,25 +2,30 @@ package core;
 
 public class Checkout {
 
+	private PriceRules priceRules;
+	private int total;
+
 	public Checkout(PriceRules priceRules) {
-		// TODO Auto-generated constructor stub
+		this.priceRules = priceRules;
+		this.total = 0;
 	}
 
 	public int totals() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.total;
 	}
 
-	public void scan(char c) {
-		// TODO Auto-generated method stub
-		
+	public void scan(char productLabel) {
+		for(Product product : this.priceRules.products()){
+			if(product.matches(productLabel)){
+				this.total += product.unitPrice();
+			}
+		}
 	}
 	
 	public int Price(String items) {
-	    Checkout co = new Checkout(new PriceRules());
-	    for(char c : items.toCharArray())
-	        co.scan(c);
-	    return co.totals();
+	    for(char item : items.toCharArray())
+	        scan(item);
+	    return totals();
 	}
 
 }
