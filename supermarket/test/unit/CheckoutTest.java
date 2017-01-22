@@ -4,7 +4,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import core.Checkout;
@@ -34,7 +33,7 @@ public class CheckoutTest {
 		assertThat(checkout.Price("DDD"), is(equalTo(45)));
 	}
 	
-	@Ignore
+	@Test
 	public void applyASpecialPrice() throws Exception {
 		Checkout checkout = new Checkout(new PriceRules());
 		

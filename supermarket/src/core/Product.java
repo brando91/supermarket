@@ -1,25 +1,9 @@
 package core;
 
-public class Product {
+public interface Product {
 
-	private String label;
-	private int unitPrice;
+	int totalPrice(int integer);
 
-	public Product(String label, int unitPrice) {
-		this.label = label;
-		this.unitPrice = unitPrice;
-	}
-
-	public boolean matches(char productLabel) {
-		return (productLabel + "").equalsIgnoreCase(this.label);
-	}
-
-	public int unitPrice() {
-		return this.unitPrice;
-	}
-
-	public int totalPrice(int itemsBought) {
-		return this.unitPrice * itemsBought;
-	}
+	boolean matches(char productLabel);
 
 }

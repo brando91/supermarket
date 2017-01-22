@@ -1,6 +1,6 @@
 package core;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PriceRules {
@@ -8,10 +8,11 @@ public class PriceRules {
 	private List<Product> products;
 
 	public PriceRules(){
-		this.products = Arrays.asList(new Product("A", 50), 
-									  new Product("B", 30), 
-									  new Product("C", 20), 
-									  new Product("D", 15));
+		this.products = new ArrayList<Product>();
+		this.products.add(new DiscountedProduct("A", 50, 3, 130)); 
+		this.products.add(new SimpleProduct("B", 30));
+		this.products.add(new SimpleProduct("C", 20)); 
+		this.products.add(new SimpleProduct("D", 15));
 	}
 	
 	public List<Product> products() {
