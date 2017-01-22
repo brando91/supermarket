@@ -18,4 +18,8 @@ public class Product {
 		return this.unitPrice;
 	}
 
+	public int totalPrice(int itemsBought) {
+		return this.unitPrice * itemsBought;
+	}
+
 }

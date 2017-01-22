@@ -18,4 +18,13 @@ public class PriceRules {
 		return this.products;
 	}
 
+	public Product matching(char productLabel) {
+		for(Product product : this.products()){
+			if(product.matches(productLabel)){
+				return product;
+			}
+		}
+		return null;
+	}
+
 }
