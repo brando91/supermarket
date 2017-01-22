@@ -39,4 +39,11 @@ public class CheckoutTest {
 		
 		assertThat(checkout.Price("AAA"), is(equalTo(130)));
 	}
+	
+	@Test
+	public void applyBSpecialPrice() throws Exception {
+		Checkout checkout = new Checkout(new PriceRules());
+		
+		assertThat(checkout.Price("BB"), is(equalTo(45)));
+	}
 }

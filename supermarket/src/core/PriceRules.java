@@ -10,7 +10,7 @@ public class PriceRules {
 	public PriceRules(){
 		this.products = new ArrayList<Product>();
 		this.products.add(new DiscountedProduct("A", 50, 3, 130)); 
-		this.products.add(new SimpleProduct("B", 30));
+		this.products.add(new DiscountedProduct("B", 30, 2, 45));
 		this.products.add(new SimpleProduct("C", 20)); 
 		this.products.add(new SimpleProduct("D", 15));
 	}

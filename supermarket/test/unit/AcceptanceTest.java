@@ -2,35 +2,33 @@ package unit;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Ignore;
+import org.junit.Test;
 
 import core.Checkout;
 import core.PriceRules;
 
 public class AcceptanceTest {
 
-	@Ignore
+	@Test
 	public void testTotals() {
-	    Checkout checkout = new Checkout(new PriceRules());
-	    
-		assertEquals(0, checkout.Price(""));
-	    assertEquals(50, checkout.Price("A"));
-	    assertEquals(80, checkout.Price("AB"));
-	    assertEquals(115, checkout.Price("CDBA"));
+	    assertEquals(0, priceFor(""));
+	    assertEquals(50, priceFor("A"));
+	    assertEquals(80, priceFor("AB"));
+	    assertEquals(115, priceFor("CDBA"));
 
-	    assertEquals(100, checkout.Price("AA"));
-	    assertEquals(130, checkout.Price("AAA"));
-	    assertEquals(180, checkout.Price("AAAA"));
-	    assertEquals(230, checkout.Price("AAAAA"));
-	    assertEquals(260, checkout.Price("AAAAAA"));
+	    assertEquals(100, priceFor("AA"));
+	    assertEquals(130, priceFor("AAA"));
+	    assertEquals(180, priceFor("AAAA"));
+	    assertEquals(230, priceFor("AAAAA"));
+	    assertEquals(260, priceFor("AAAAAA"));
 
-	    assertEquals(160, checkout.Price("AAAB"));
-	    assertEquals(175, checkout.Price("AAABB"));
-	    assertEquals(190, checkout.Price("AAABBD"));
-	    assertEquals(190, checkout.Price("DABABA"));
+	    assertEquals(160, priceFor("AAAB"));
+	    assertEquals(175, priceFor("AAABB"));
+	    assertEquals(190, priceFor("AAABBD"));
+	    assertEquals(190, priceFor("DABABA"));
 	}
 
-	@Ignore
+	@Test
 	public void incrementalTest(){
 	    Checkout co = new Checkout(new PriceRules());
 	    assertEquals(0,co.totals());
@@ -44,5 +42,9 @@ public class AcceptanceTest {
         assertEquals(160, co.totals());
         co.scan('B');
         assertEquals(175, co.totals());
+	}
+	
+	private int priceFor(String items) {
+		return new Checkout(new PriceRules()).Price(items);
 	}
 }
