@@ -7,11 +7,6 @@ public class SimpleProduct extends Product{
 	}
 
 	@Override
-	public boolean matches(char productLabel) {
-		return (productLabel + "").equalsIgnoreCase(this.label);
-	}
-
-	@Override
 	public int priceFor(int itemsBought) {
 		return this.unitPrice * itemsBought;
 	}

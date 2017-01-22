@@ -12,7 +12,7 @@ public abstract class Product {
 	
 	abstract int priceFor(int itemsBought);
 
-	boolean matches(char productLabel) {
+	public boolean matches(char productLabel) {
 		return (productLabel + "").equalsIgnoreCase(this.label);
 	}
 
