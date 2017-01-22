@@ -15,18 +15,18 @@ public class Checkout {
 	public int totals() {
 		int total = 0;
 		for(Product product : this.scanned.keySet()){
-			total += product.totalPrice(this.scanned.get(product));
+			total += product.priceFor(this.scanned.get(product));
 		}
 		return total;
 	}
 
 	public void scan(char productLabel) {
-		Product p = this.priceRules.matching(productLabel);
+		Product product = this.priceRules.matching(productLabel);
 		
-		if(!this.scanned.containsKey(p)){
-			this.scanned.put(p, 0);
+		if(!this.scanned.containsKey(product)){
+			this.scanned.put(product, 0);
 		}
-		this.scanned.put(p, this.scanned.get(p) + 1); 
+		this.scanned.put(product, this.scanned.get(product) + 1); 
 	}
 	
 	public int Price(String items) {

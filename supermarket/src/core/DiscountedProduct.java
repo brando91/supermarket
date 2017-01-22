@@ -1,26 +1,18 @@
 package core;
 
-public class DiscountedProduct implements Product {
+public class DiscountedProduct extends Product {
 
-	private String label;
-	private int unitPrice;
 	private int multiplier;
 	private int discountedPrice;
 
-	public DiscountedProduct(String label, int unitPrice, int multiplier, int i) {
-		this.label = label;
-		this.unitPrice = unitPrice;
+	public DiscountedProduct(String label, int unitPrice, int multiplier, int discountedPrice) {
+		super(label, unitPrice);
 		this.multiplier = multiplier;
-		this.discountedPrice = i;
-	}
-	
-	@Override
-	public boolean matches(char productLabel) {
-		return (productLabel + "").equalsIgnoreCase(this.label);
+		this.discountedPrice = discountedPrice;
 	}
 
 	@Override
-	public int totalPrice(int itemsBought) {
+	public int priceFor(int itemsBought) {
 		int withDiscountedPrice = itemsBought / this.multiplier;
 		int withoutDiscountedPrice = itemsBought - withDiscountedPrice * this.multiplier;		
 		

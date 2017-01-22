@@ -15,12 +15,8 @@ public class PriceRules {
 		this.products.add(new SimpleProduct("D", 15));
 	}
 	
-	public List<Product> products() {
-		return this.products;
-	}
-
 	public Product matching(char productLabel) {
-		for(Product product : this.products()){
+		for(Product product : this.products){
 			if(product.matches(productLabel)){
 				return product;
 			}

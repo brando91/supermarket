@@ -1,13 +1,9 @@
 package core;
 
-public class SimpleProduct implements Product{
-
-	private String label;
-	private int unitPrice;
+public class SimpleProduct extends Product{
 
 	public SimpleProduct(String label, int unitPrice) {
-		this.label = label;
-		this.unitPrice = unitPrice;
+		super(label, unitPrice);
 	}
 
 	@Override
@@ -16,7 +12,7 @@ public class SimpleProduct implements Product{
 	}
 
 	@Override
-	public int totalPrice(int itemsBought) {
+	public int priceFor(int itemsBought) {
 		return this.unitPrice * itemsBought;
 	}
 

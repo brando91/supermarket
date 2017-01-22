@@ -14,27 +14,27 @@ public class DiscountedProductTest {
 	public void unitPrice() throws Exception {
 		DiscountedProduct product = new DiscountedProduct("A", 50, 3, 130);
 		
-		assertThat(product.totalPrice(1), is(equalTo(50)));
+		assertThat(product.priceFor(1), is(equalTo(50)));
 	}
 	
 	@Test
 	public void discountedPrice() throws Exception {
 		DiscountedProduct product = new DiscountedProduct("A", 50, 3, 130);
 		
-		assertThat(product.totalPrice(3), is(equalTo(130)));
+		assertThat(product.priceFor(3), is(equalTo(130)));
 	}
 	
 	@Test
 	public void doubleDiscountPrice() throws Exception {
 		DiscountedProduct product = new DiscountedProduct("A", 50, 3, 130);
 		
-		assertThat(product.totalPrice(6), is(equalTo(260)));
+		assertThat(product.priceFor(6), is(equalTo(260)));
 	}
 	
 	@Test
 	public void mixedPrice() throws Exception {
 		DiscountedProduct product = new DiscountedProduct("A", 50, 3, 130);
 		
-		assertThat(product.totalPrice(7), is(equalTo(310)));
+		assertThat(product.priceFor(7), is(equalTo(310)));
 	}
 }
